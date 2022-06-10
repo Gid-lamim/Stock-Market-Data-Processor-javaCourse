@@ -29,14 +29,22 @@ public class StockFileReader {
 	        return br.readLine();
 	    }
 	}
-	/**
-	 * Complete the body of this method.
-	 * @return List
-	 * @throws IOException
-	 */
+	
+	
 	public List<String> readFileData() throws IOException{
 		List<String> lines = new ArrayList<String>();
-		// Insert your code here..
+		
+		try(BufferedReader br = new BufferedReader(new FileReader(filePath))){
+			
+			br.readLine();
+			String line = null;// skip the first line
+			
+			//second line  --   it's gonna be loop. It's going to run until the line is empty
+			while((line = br.readLine()) != null) {
+				lines.add(line); // it stores the lines in the array list that was created above
+			}
+			
+		}
 	    return lines;
 	}
 	
